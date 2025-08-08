@@ -3,7 +3,7 @@ import http from 'http';
 import { Server } from 'socket.io';
 import cors from 'cors';
 import { handleUserSocket } from './sockets/user.socket.js';
-import AppRouter from './routes/AppRouter.js'
+import AppRouter from './routes/AppRouter.js';
 import presentationRoutes from './routes/presentation.routes.js';
 
 const app = express();
@@ -18,10 +18,10 @@ const io = new Server(server, {
 
 app.use(cors());
 app.use(express.json());
-app.use('/', AppRouter)
+app.use('/', AppRouter);
 app.use('/api/presentations', presentationRoutes);
 
-io.on('connection', (socket) => {
+io.on('connection', socket => {
   console.log('Socket connected:', socket.id);
   handleUserSocket(io, socket);
 });

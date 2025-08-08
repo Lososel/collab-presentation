@@ -2,10 +2,9 @@ import db from '../config/db.js';
 import type { Presentation } from '../models/presentation.model.js';
 
 export const createPresentation = async (title: string): Promise<Presentation> => {
-  const result = await db.query(
-    'INSERT INTO presentations (title) VALUES ($1) RETURNING *',
-    [title]
-  );
+  const result = await db.query('INSERT INTO presentations (title) VALUES ($1) RETURNING *', [
+    title,
+  ]);
   return result.rows[0];
 };
 

@@ -4,11 +4,7 @@ export const getSlidesByPresentationId = (presentationId: string) => {
   return SlideRepo.getSlidesByPresentationId(presentationId);
 };
 
-export const createSlide = (
-  presentationId: string,
-  position: number,
-  content?: string
-) => {
+export const createSlide = (presentationId: string, position: number, content?: string) => {
   return SlideRepo.createSlide(presentationId, content || '', position);
 };
 
